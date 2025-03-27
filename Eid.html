@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eid Mubarak</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap');
+        
+        body {
+            font-family: Arial, sans-serif;
+            background: url('pngtree-eid-mubarak-celebration-in-gold-and-black-theme-with-moon-illustration-picture-image_1379493.jpg') ;
+            text-align: center;
+            color: white;
+            padding: 10px;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+        .container {
+            background: rgba(0, 0, 0, 0.6);
+            position: relative;
+            padding: 300px;
+            border-radius: 15px;
+            display: inline-block;
+        }
+        h1 {
+            font-size: 60px;
+            font-family: 'Great Vibes', cursive;
+            animation: fadeIn 2s ease-in-out, textGlow 2s infinite alternate;
+        }
+        p {
+            font-size: 20px;
+            margin-top: 20px;
+            animation: fadeInText 2s ease-in-out;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes fadeInText {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        @keyframes slideInOut {
+            0% { transform: translateX(-100%); opacity: 0; }
+            50% { transform: translateX(0); opacity: 1; }
+            100% { transform: translateX(100%); opacity: 0; }
+        }
+        @keyframes textBlink {
+            0% { opacity: 1; }
+            50% { opacity: 0.5; }
+            100% { opacity: 1; }
+        }
+        @keyframes textGlow {
+            from { text-shadow: 0 0 10px gold; }
+            to { text-shadow: 0 0 20px orange; }
+        }
+        @keyframes glowYellow {
+            0% { text-shadow: 0 0 5px yellow; }
+            50% { text-shadow: 0 0 15px yellow; }
+            100% { text-shadow: 0 0 5px yellow; }
+        }
+        .name-button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            position: relative;
+            font-size: 18px;
+            background: gold;
+            border: none;
+            cursor: pointer;
+            border-radius: 10px;
+            transition: 0.3s;
+        }
+        .name-button:hover {
+            background: orange;
+        }
+        .input-container {
+            margin-top: 20px;
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            background: rgba(255, 255, 255, 0.2);
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 10px rgba(255, 255, 255, 0.3);
+        }
+        input {
+            padding: 12px;
+            font-size: 18px;
+            border-radius: 8px;
+            border: none;
+            outline: none;
+            width: 250px;
+            text-align: center;
+            background: white;
+            color: black;
+            font-weight: bold;
+        }
+        .team-wishes {
+            font-weight: bold;
+            margin-top: 10px;
+            animation: dropDown 1.5s ease-in-out, textGlow 2s infinite alternate;
+        }
+        .wish-text {
+            display: inline-block;
+            animation: slideInOut 6s ease-in-out infinite, glowYellow 2s infinite alternate;
+        }
+        .floating-lanterns, .twinkling-stars, .mosque-silhouette {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: -1;
+        }
+        .floating-lanterns img {
+            position: absolute;
+            width: 200px;
+            animation: floatLantern 5s infinite ease-in-out;
+        }
+        @keyframes floatLantern {
+            0% { transform: translateY(10px); opacity: 0.8; }
+            50% { transform: translateY(-10px); opacity: 1; }
+            100% { transform: translateY(10px); opacity: 0.8; }
+        }
+    </style>
+</head>
+<body>
+    <div class="floating-lanterns">
+        <img src="lantern.png" style="top: 10%; left: 20%;">
+        <img src="lantern.png" style="top: 30%; left: 60%;">
+    </div>
+    <div class="twinkling-stars"></div>
+    <div class="mosque-silhouette"></div>
+    <div class="container">
+        <h1>Eid Mubarak!</h1>
+        <p class="team-wishes"><b>Wishes by Team Iris and Incharge Mr. Abdullah.</b></p>
+        <div class="input-container" id="inputContainer">
+            <input type="text" id="userName" placeholder="Enter your name">
+            <button class="name-button" onclick="displayWish()">Submit</button>
+        </div>
+        <p id="wish" class="wish-text">Wishing you joy, peace, and prosperity on this blessed occasion.</p>
+    </div>
+    <script>
+        const wishes = [
+            "May this Eid bring happiness and success to your life!",
+            "Eid Mubarak! Wishing you endless joy and peace."
+        ];
+    function displayWish() {
+        const userName = document.getElementById("userName").value;
+        const wishElement = document.getElementById("wish");
+        const inputContainer = document.getElementById("inputContainer");
+        if (userName) {
+            wishElement.innerHTML = `${userName}, ` + wishes.join(" ");
+            wishElement.style.animation = "slideInOut 6s ease-in-out, glowYellow 2s infinite alternate";
+            inputContainer.style.display = "none";
+        }
+
+    }
+    </script>
+</body>
+</html>
